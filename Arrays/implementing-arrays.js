@@ -33,6 +33,14 @@ class MyArray {
         delete this.data[this.length - 1];
         this.length--;
     }
+
+    add (index, item) {
+        for(let i = this.length - 1; i >= index; i--) {
+            this.data[i + 1] = this.data[i];
+        }
+        this.data[index] = item;
+        this.length++;
+    }
 }
 
 const newArray = new MyArray();
@@ -41,4 +49,6 @@ newArray.push('you');
 newArray.push('!');
 console.log(newArray);
 newArray.delete(1);
+console.log(newArray);
+newArray.add(1, 'there');
 console.log(newArray);
